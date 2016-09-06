@@ -1,0 +1,13 @@
+{
+	"name": "spysystem/economic",
+	"description": "PHP library for E-conomic Web Services",
+	"license": "proprietary",
+	"require": {
+		"php": ">=5.3.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Economic\\": "src"
+		}
+	}
+}
