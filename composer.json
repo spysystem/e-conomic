@@ -1,5 +1,5 @@
 {
-	"name": "spysystem/economic",
+	"name": "spysystem/e-conomic",
 	"description": "PHP library for E-conomic Web Services",
 	"license": "proprietary",
 	"require": {
