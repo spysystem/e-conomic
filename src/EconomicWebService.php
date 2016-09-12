@@ -2,8 +2,14 @@
 
 namespace Economic;
 
+/**
+ * Class EconomicWebService
+ *
+ * @package Economic
+ */
 class EconomicWebService extends \SoapClient
 {
+	const	WSDLUrl	= 'https://api.e-conomic.com/secure/api1/EconomicWebService.asmx?WSDL';
 
     /**
      * @var array $classmap The defined classes
@@ -3456,11 +3462,24 @@ class EconomicWebService extends \SoapClient
       'GetApiInformationResponse' => 'Economic\\GetApiInformationResponse',
     );
 
+	/**
+	 * @return EconomicWebService
+	 */
+	public static function Create()
+	{
+		return new self([
+			'trace'        => true,
+			'exceptions'   => true,
+			'soap_version' => SOAP_1_2,
+			'encoding'     => 'UTF-8'
+		]);
+	}
+
     /**
      * @param array $options A array of config values
      * @param string $wsdl The wsdl file to use
      */
-    public function __construct(array $options = array(), $wsdl = null)
+    public function __construct(array $options = array(), $wsdl = self::WSDLUrl)
     {
       foreach (self::$classmap as $key => $value) {
         if (!isset($options['classmap'][$key])) {
