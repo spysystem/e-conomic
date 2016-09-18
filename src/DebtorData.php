@@ -2,6 +2,11 @@
 
 namespace Economic;
 
+/**
+ * Class DebtorData
+ *
+ * @package Economic
+ */
 class DebtorData
 {
 
@@ -151,14 +156,64 @@ class DebtorData
     protected $DefaultDeliveryLocationHandle = null;
 
     /**
-     * @param VatZone $VatZone
-     * @param boolean $IsAccessible
+     * @param VatZone|string $VatZone
+     * @param boolean        $IsAccessible
      */
     public function __construct($VatZone, $IsAccessible)
     {
       $this->VatZone = $VatZone;
       $this->IsAccessible = $IsAccessible;
     }
+
+	/**
+	 * @param string              $strVatZone
+	 * @param bool                $bIsAccessible
+	 * @param string              $strNumber
+	 * @param string              $strName
+	 * @param string              $strAddress
+	 * @param string              $strPostalCode
+	 * @param string              $strCity
+	 * @param string              $strCounty
+	 * @param string              $strCountry
+	 * @param string              $strVatNumber
+	 * @param string              $strEmail
+	 * @param string              $strTelephoneAndFaxNumber
+	 * @param TermOfPaymentHandle $oTermOfPaymentHandle
+	 * @param CurrencyHandle      $oCurrencyHandle
+	 * @param DebtorGroupHandle   $oDebtorGroupHandle
+	 * @param string              $strEAN
+	 * @param DebtorHandle|null   $oDebtorHandle
+	 *
+	 * @return DebtorData
+	 */
+	public function Create($strVatZone, $bIsAccessible, $strNumber, $strName, $strAddress, $strPostalCode, $strCity,
+							  $strCounty, $strCountry, $strVatNumber, $strEmail, $strTelephoneAndFaxNumber,
+							  TermOfPaymentHandle $oTermOfPaymentHandle, CurrencyHandle $oCurrencyHandle,
+							  DebtorGroupHandle $oDebtorGroupHandle, $strEAN, DebtorHandle $oDebtorHandle = null)
+	{
+		$oDebtorData	= new self($strVatZone, $bIsAccessible);
+		$oDebtorData->setNumber($strNumber);
+		$oDebtorData->setName($strName);
+		$oDebtorData->setAddress($strAddress);
+		$oDebtorData->setPostalCode($strPostalCode);
+		$oDebtorData->setCity($strCity);
+		$oDebtorData->setCounty($strCounty);
+		$oDebtorData->setCountry($strCountry);
+		$oDebtorData->setVatNumber($strVatNumber);
+		$oDebtorData->setEmail($strEmail);
+		$oDebtorData->setTelephoneAndFaxNumber($strTelephoneAndFaxNumber);
+		$oDebtorData->setTermOfPaymentHandle($oTermOfPaymentHandle);
+		$oDebtorData->setCurrencyHandle($oCurrencyHandle);
+		$oDebtorData->setDebtorGroupHandle($oDebtorGroupHandle);
+		$oDebtorData->setEan($strEAN);
+		# For Update only
+		if ($oDebtorHandle !== null)
+		{
+			$oDebtorData->setHandle($oDebtorHandle);
+		}
+
+		return $oDebtorData;
+	}
 
     /**
      * @return DebtorHandle

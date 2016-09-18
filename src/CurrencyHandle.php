@@ -2,6 +2,11 @@
 
 namespace Economic;
 
+/**
+ * Class CurrencyHandle
+ *
+ * @package Economic
+ */
 class CurrencyHandle
 {
 
@@ -10,10 +15,15 @@ class CurrencyHandle
      */
     protected $Code = null;
 
-    
-    public function __construct()
+
+	/**
+	 * CurrencyHandle constructor.
+	 *
+	 * @param string $Code
+	 */
+	public function __construct($Code)
     {
-    
+    	$this->Code = $Code;
     }
 
     /**
