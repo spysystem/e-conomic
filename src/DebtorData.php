@@ -186,7 +186,7 @@ class DebtorData
 	 *
 	 * @return DebtorData
 	 */
-	public function Create($strVatZone, $bIsAccessible, $strNumber, $strName, $strAddress, $strPostalCode, $strCity,
+	public static function Create($strVatZone, $bIsAccessible, $strNumber, $strName, $strAddress, $strPostalCode, $strCity,
 							  $strCounty, $strCountry, $strVatNumber, $strEmail, $strTelephoneAndFaxNumber,
 							  TermOfPaymentHandle $oTermOfPaymentHandle, CurrencyHandle $oCurrencyHandle,
 							  DebtorGroupHandle $oDebtorGroupHandle, $strEAN, DebtorHandle $oDebtorHandle = null)
