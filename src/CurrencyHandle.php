@@ -18,13 +18,23 @@ class CurrencyHandle
 
 	/**
 	 * CurrencyHandle constructor.
-	 *
-	 * @param string $Code
 	 */
-	public function __construct($Code)
+	public function __construct()
     {
-    	$this->Code = $Code;
     }
+
+	/**
+	 * @param $strCode
+	 *
+	 * @return CurrencyHandle
+	 */
+	public static function Create($strCode)
+	{
+	$oHandle	= new self();
+	$oHandle->setCode($strCode);
+
+	return $oHandle;
+	}
 
     /**
      * @return string

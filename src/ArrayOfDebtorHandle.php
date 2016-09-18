@@ -2,6 +2,11 @@
 
 namespace Economic;
 
+/**
+ * Class ArrayOfDebtorHandle
+ *
+ * @package Economic
+ */
 class ArrayOfDebtorHandle implements \ArrayAccess, \Iterator, \Countable
 {
 
@@ -10,11 +15,27 @@ class ArrayOfDebtorHandle implements \ArrayAccess, \Iterator, \Countable
      */
     protected $DebtorHandle = null;
 
-    
-    public function __construct()
+	/**
+	 * ArrayOfDebtorHandle constructor.
+	 */
+	public function __construct()
     {
     
     }
+
+	/**
+	 * @return string[]
+	 */
+	public function AsIndexedArray()
+	{
+		$arrAccountNos = [];
+		foreach ($this as $oDebtorHandler)
+		{
+			$arrAccountNos[$oDebtorHandler->getNumber()]	= $oDebtorHandler->getNumber();
+		}
+
+		return  $arrAccountNos;
+	}
 
     /**
      * @return DebtorHandle[]

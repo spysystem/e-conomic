@@ -2,6 +2,11 @@
 
 namespace Economic;
 
+/**
+ * Class CreditorData
+ *
+ * @package Economic
+ */
 class CreditorData
 {
 
@@ -121,7 +126,7 @@ class CreditorData
     protected $DefaultInvoiceText = null;
 
     /**
-     * @param VatZone $VatZone
+     * @param VatZone|string $VatZone
      * @param boolean $IsAccessible
      */
     public function __construct($VatZone, $IsAccessible)
@@ -130,6 +135,48 @@ class CreditorData
       $this->IsAccessible = $IsAccessible;
     }
 
+	/**
+	 * @param string              $strVatZone
+	 * @param bool                $bIsAccessible
+	 * @param string              $strNumber
+	 * @param string              $strName
+	 * @param string              $strAddress
+	 * @param string              $strPostalCode
+	 * @param string              $strCity
+	 * @param string              $strCountry
+	 * @param string              $strCINumber
+	 * @param string              $strEmail
+	 * @param CurrencyHandle      $oCurrencyHandle
+	 * @param CreditorGroupHandle $oCreditorGroupHandle
+	 * @param CreditorHandle|null $oCreditorHandle
+	 *
+	 * @return CreditorData
+	 */
+	public static function Create($strVatZone, $bIsAccessible, $strNumber, $strName, $strAddress, $strPostalCode, $strCity,
+									 $strCountry, $strCINumber, $strEmail, CurrencyHandle $oCurrencyHandle,
+									 CreditorGroupHandle $oCreditorGroupHandle, CreditorHandle $oCreditorHandle = null)
+	{
+		$oCreditorData	= new self($strVatZone, $bIsAccessible);
+		$oCreditorData
+			->setNumber($strNumber)
+			->setName($strName)
+			->setAddress($strAddress)
+			->setPostalCode($strPostalCode)
+			->setCity($strCity)
+			->setCountry($strCountry)
+			->setCINumber($strCINumber)
+			->setEmail($strEmail)
+			->setCurrencyHandle($oCurrencyHandle)
+			->setCreditorGroupHandle($oCreditorGroupHandle);
+		# For Update only
+		if ($oCreditorHandle !== null)
+		{
+			$oCreditorData->setHandle($oCreditorHandle);
+		}
+
+		return $oCreditorData;
+	}
+    
     /**
      * @return CreditorHandle
      */

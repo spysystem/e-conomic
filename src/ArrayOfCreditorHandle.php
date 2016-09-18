@@ -2,6 +2,11 @@
 
 namespace Economic;
 
+/**
+ * Class ArrayOfCreditorHandle
+ *
+ * @package Economic
+ */
 class ArrayOfCreditorHandle implements \ArrayAccess, \Iterator, \Countable
 {
 
@@ -10,11 +15,28 @@ class ArrayOfCreditorHandle implements \ArrayAccess, \Iterator, \Countable
      */
     protected $CreditorHandle = null;
 
-    
-    public function __construct()
+
+	/**
+	 * ArrayOfCreditorHandle constructor.
+	 */
+	public function __construct()
     {
     
     }
+
+	/**
+	 * @return string[]
+	 */
+	public function AsIndexedArray()
+	{
+		$arrAccountNos = [];
+		foreach ($this as $oCreditorHandle)
+		{
+			$arrAccountNos[$oCreditorHandle->getNumber()]	= $oCreditorHandle->getNumber();
+		}
+
+		return  $arrAccountNos;
+	}
 
     /**
      * @return CreditorHandle[]

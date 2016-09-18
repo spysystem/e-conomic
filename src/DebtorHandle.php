@@ -2,6 +2,11 @@
 
 namespace Economic;
 
+/**
+ * Class DebtorHandle
+ *
+ * @package Economic
+ */
 class DebtorHandle
 {
 
@@ -10,11 +15,27 @@ class DebtorHandle
      */
     protected $Number = null;
 
-    
-    public function __construct()
+
+	/**
+	 * DebtorHandle constructor.
+	 */
+	public function __construct()
     {
     
     }
+
+	/**
+	 * @param $strNumber
+	 *
+	 * @return DebtorHandle
+	 */
+	public static function Create($strNumber)
+	{
+		$oHandle	= new self();
+		$oHandle->setNumber($strNumber);
+
+		return $oHandle;
+	}
 
     /**
      * @return string
