@@ -2,6 +2,11 @@
 
 namespace Economic;
 
+/**
+ * Class CashBookEntryData
+ *
+ * @package Economic
+ */
 class CashBookEntryData
 {
 
@@ -161,7 +166,7 @@ class CashBookEntryData
     protected $EmployeeHandle = null;
 
     /**
-     * @param CashBookEntryType $Type
+     * @param CashBookEntryType|string $Type
      * @param \DateTime $Date
      * @param int $VoucherNumber
      * @param float $AmountDefaultCurrency
@@ -339,7 +344,7 @@ class CashBookEntryData
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTime|bool
      */
     public function getDate()
     {
@@ -527,7 +532,7 @@ class CashBookEntryData
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTime|bool
      */
     public function getDueDate()
     {
@@ -701,7 +706,7 @@ class CashBookEntryData
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTime|bool
      */
     public function getStartDate()
     {
@@ -731,7 +736,7 @@ class CashBookEntryData
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTime|bool
      */
     public function getEndDate()
     {
