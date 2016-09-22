@@ -188,7 +188,7 @@ class DebtorData
 	 */
 	public static function Create($strVatZone, $bIsAccessible, $strNumber, $strName, $strAddress, $strPostalCode, $strCity,
 								  $strCounty, $strCountry, $strCINumber, $strEmail, $strTelephoneAndFaxNumber,
-								  TermOfPaymentHandle $oTermOfPaymentHandle, CurrencyHandle $oCurrencyHandle,
+								  TermOfPaymentHandle $oTermOfPaymentHandle = null, CurrencyHandle $oCurrencyHandle,
 								  DebtorGroupHandle $oDebtorGroupHandle, $strEAN, DebtorHandle $oDebtorHandle = null)
 	{
 		$oDebtorData	= new self($strVatZone, $bIsAccessible);
