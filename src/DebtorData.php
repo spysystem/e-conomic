@@ -187,7 +187,7 @@ class DebtorData
 	 * @return DebtorData
 	 */
 	public static function Create($strVatZone, $bIsAccessible, $strNumber, $strName, $strAddress, $strPostalCode, $strCity,
-								  $strCounty, $strCountry, $strCINumber, $strEmail, $strTelephoneAndFaxNumber,
+								  $strCounty, $strCountry, $strCINumber, $strEmail = null, $strTelephoneAndFaxNumber,
 								  TermOfPaymentHandle $oTermOfPaymentHandle = null, CurrencyHandle $oCurrencyHandle,
 								  DebtorGroupHandle $oDebtorGroupHandle, $strEAN, DebtorHandle $oDebtorHandle = null)
 	{
@@ -201,7 +201,6 @@ class DebtorData
 			->setCounty($strCounty)
 			->setCountry($strCountry)
 			->setCINumber($strCINumber)
-			->setEmail($strEmail)
 			->setTelephoneAndFaxNumber($strTelephoneAndFaxNumber)
 			->setTermOfPaymentHandle($oTermOfPaymentHandle)
 			->setCurrencyHandle($oCurrencyHandle)
@@ -211,6 +210,10 @@ class DebtorData
 		if ($oDebtorHandle !== null)
 		{
 			$oDebtorData->setHandle($oDebtorHandle);
+		}
+		if($strEmail !== null)
+		{
+			$oDebtorData->setEmail($strEmail);
 		}
 
 		return $oDebtorData;
