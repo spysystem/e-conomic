@@ -3467,7 +3467,7 @@ class EconomicWebService extends \SoapClient
 	 */
 	public static function Create()
 	{
-		return new self([
+		return new static([
 			'trace'        => true,
 			'exceptions'   => true,
 			'soap_version' => SOAP_1_2,
